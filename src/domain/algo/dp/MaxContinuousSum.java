@@ -1,15 +1,24 @@
 package domain.algo.dp;
 
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 public class MaxContinuousSum {
 
 	static int[] inputArray;
 	static int[] prevSumArray;
 	
 	public static void main(String[] args) {
-		inputArray = new int[args.length];
-		
-		for(int stringToIntCount = 0;stringToIntCount<args.length;stringToIntCount++) {
-			inputArray[stringToIntCount] = Integer.parseInt(args[stringToIntCount]);
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the array of integers");
+		String input = scanner.nextLine();
+		scanner.close();
+		StringTokenizer tokenizer = new StringTokenizer(input, " ");
+		inputArray = new int[tokenizer.countTokens()];
+		int inputArrayindex = 0;
+		while(tokenizer.hasMoreTokens()) {
+			inputArray[inputArrayindex] = Integer.parseInt(tokenizer.nextToken());
+			inputArrayindex++;
 		}
 		
 		int maxSum = inputArray[0];
